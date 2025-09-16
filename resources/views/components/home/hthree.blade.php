@@ -1,6 +1,6 @@
 <section
   id="layanan"
-  class="py-16 bg-gray-50"
+  class="py-16 dark:bg-slate-900 dark:text-slate-200 bg-gray-50"
   x-data="serviceAnimation()"
   x-init="init()"
 >
@@ -9,13 +9,13 @@
          :class="show ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-10'">
       <h2 class="text-3xl font-bold leading-tight font-pj sm:text-4xl xl:text-5xl">
         <span class="inline-block text-transparent bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text animate-pulse">Pilih</span>
-        <span class="text-gray-900"> Layanan </span>
+        <span class="text-gray-900 dark:text-slate-100"> Layanan </span>
         <span class="inline-block text-transparent bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text animate-pulse">Kami</span>
       </h2>
-      <p class="mt-4 text-base leading-7 text-gray-600 sm:mt-6">
-            Temukan solusi kantor dan pendirian usaha yang fleksibel, profesional, dan terjangkau
+      <p class="mt-4 text-base leading-7 text-gray-600 dark:text-slate-300 sm:mt-6">
+        Temukan solusi kantor dan pendirian usaha yang fleksibel, profesional, dan terjangkau
         untuk mendukung pertumbuhan bisnis Anda.
-        </p>
+      </p>
     </div>
 
     <div class="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3">
@@ -94,7 +94,7 @@
         ]
       ] as $index => $service)
         <div
-          class="relative overflow-hidden transition-all duration-[1500ms] border border-yellow-100 shadow-md group rounded-2xl bg-gradient-to-br from-yellow-25 via-yellow-50 to-white shadow-yellow-200/60 hover:shadow-lg hover:shadow-yellow-200/80"
+          class="relative overflow-hidden transition-all duration-[1500ms] border border-yellow-100 dark:border-slate-700 shadow-md group rounded-2xl bg-gradient-to-br from-yellow-25 via-yellow-50 to-white dark:from-slate-800 dark:via-slate-800 dark:to-slate-900 shadow-yellow-200/60 dark:shadow-none hover:shadow-lg hover:shadow-yellow-200/80 dark:hover:shadow-slate-700/40"
           :class="show
             ? 'opacity-100 translate-x-0'
             : indexIsOdd({{ $index }})
@@ -105,13 +105,17 @@
         >
           <div class="flex flex-col h-full p-8">
 
-            <h3 class="mb-4 text-2xl font-bold text-center text-gray-800">{{ $service['title'] }}</h3>
+            <h3 class="mb-4 text-2xl font-bold text-center text-gray-900 dark:text-slate-100">
+              {{ $service['title'] }}
+            </h3>
 
-            <p class="mb-6 text-sm leading-relaxed text-center text-gray-600">{{ $service['description'] }}</p>
+            <p class="mb-6 text-sm leading-relaxed text-center text-gray-600 dark:text-slate-300">
+              {{ $service['description'] }}
+            </p>
 
             <ul class="flex-1 mb-8 space-y-2">
               @foreach($service['features'] as $feature)
-                <li class="flex items-center text-sm text-gray-700">
+                <li class="flex items-center text-sm text-gray-700 dark:text-slate-200">
                   <svg class="flex-shrink-0 w-4 h-4 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
                   </svg>
@@ -122,7 +126,7 @@
 
             <div class="text-center">
               <a href="{{ $service['route'] }}"
-                class="inline-block px-6 py-3 font-semibold text-gray-800 transition-all duration-300 border border-yellow-200 rounded-lg shadow-sm opacity-0 bg-white/80 backdrop-blur-sm hover:bg-white hover:shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-300 group-hover:opacity-100"
+                class="inline-block px-6 py-3 font-semibold text-gray-800 transition-all duration-300 bg-yellow-400 border border-yellow-200 rounded-lg shadow-sm opacity-0 dark:text-slate-900 dark:border-yellow-500 dark:bg-yellow-500 backdrop-blur-sm hover:bg-white dark:hover:bg-yellow-400 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-300 dark:focus:ring-yellow-500 group-hover:opacity-100"
                 x-bind:class="show ? 'opacity-100' : 'opacity-0'">
                 Lihat Detail
               </a>
@@ -138,23 +142,18 @@
       return {
         show: false,
         init() {
-          // Cek apakah sudah terlihat di viewport pakai IntersectionObserver
           const observer = new IntersectionObserver(
             ([entry]) => {
               if (entry.isIntersecting) {
                 this.show = true;
-                observer.disconnect(); // hanya sekali saja
+                observer.disconnect();
               }
             },
-            {
-              root: null,
-              threshold: 0.3, // 30% section terlihat
-            }
+            { root: null, threshold: 0.3 }
           );
           observer.observe(document.getElementById('layanan'));
         },
         indexIsOdd(index) {
-          // untuk ngasih animasi masuk kanan/ kiri selang-seling
           return index % 2 === 1;
         }
       };

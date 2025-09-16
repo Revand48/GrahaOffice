@@ -1,11 +1,11 @@
-<footer class="bg-gradient-to-r from-gray-100 via-[#f6b948] to-gray-100 text-gray-800">
+<footer class="dark:bg-slate-800 dark:text-slate-200 bg-gradient-to-r from-white-100 via-[#ffcf76] to-white-100 text-gray-800">
   <div class="px-4 py-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
     <div class="grid items-start grid-cols-1 gap-6 text-center lg:grid-cols-3 lg:text-left">
 
       <div class="flex flex-col items-center space-y-3 lg:items-start">
         <a href="/" class="flex flex-col items-center space-y-1 lg:items-start">
           <img src="{{ asset('images/logo.png') }}" alt="Graha Office Logo" class="object-contain h-32 drop-shadow-md" />
-          <p class="text-sm text-gray-700">Penyediaan Jasa Sewa Kantor Nyaman di Surabaya</p>
+          <p class="text-sm text-gray-700 dark:text-slate-200">Penyediaan Jasa Sewa Kantor Nyaman di Surabaya</p>
         </a>
 
         <div class="flex mt-2 space-x-4">
@@ -34,11 +34,11 @@
 
       <div class="flex flex-col items-center mt-10 space-y-2">
         <h4 class="text-base font-semibold">Layanan Kami:</h4>
-        <a href="/layanan/1" class="text-sm font-semibold text-gray-800 hover:text-[#b57400] transition-all">Virtual Office</a>
-        <a href="/layanan/2" class="text-sm font-semibold text-gray-800 hover:text-[#b57400] transition-all">Private Office</a>
-        <a href="/layanan/3" class="text-sm font-semibold text-gray-800 hover:text-[#b57400] transition-all">Shared Office</a>
-        <a href="/layanan/4" class="text-sm font-semibold text-gray-800 hover:text-[#b57400] transition-all">Jasa Pembuatan PT CV</a>
-        <a href="/layanan/5" class="text-sm font-semibold text-gray-800 hover:text-[#b57400] transition-all">Paket Hemat Pembuatan PT CV & Virtual Office</a>
+        <a href="/layanan/virtual-office" class="dark:text-slate-200 text-sm font-semibold text-gray-800 hover:text-[#b57400] transition-all">Virtual Office</a>
+        <a href="/layanan/private-office" class="dark:text-slate-200 text-sm font-semibold text-gray-800 hover:text-[#b57400] transition-all">Private Office</a>
+        <a href="/layanan/shared-office" class="dark:text-slate-200 text-sm font-semibold text-gray-800 hover:text-[#b57400] transition-all">Shared Office</a>
+        <a href="/layanan/jasa-pt" class="dark:text-slate-200 text-sm font-semibold text-gray-800 hover:text-[#b57400] transition-all">Jasa Pembuatan PT CV</a>
+        <a href="/layanan/paket-hemat" class="dark:text-slate-200 text-sm font-semibold text-gray-800 hover:text-[#b57400] transition-all">Paket Hemat Pembuatan PT CV & Virtual Office</a>
       </div>
 
       <div class="flex flex-col items-center py-8 space-y-5 lg:items-end">
@@ -71,7 +71,7 @@
 
     </div>
 
-    <p class="mt-6 text-xs text-center text-gray-800">
+    <p class="text-xs text-center text-gray-800 dark:text-slate-200 t-6">
       © 2025 GrahaOffice. All rights reserved.
     </p>
   </div>

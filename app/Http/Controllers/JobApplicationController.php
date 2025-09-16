@@ -54,7 +54,7 @@ class JobApplicationController extends Controller
             'email' => 'required|email',
             'institusi' => 'required|string',
             'jurusan' => 'required|string',
-            'keahlian' => 'required|string',
+
             'posisi' => 'required|string',
             'foto' => 'required|image|mimes:jpg,png,jpeg|max:2048',
             'cv' => 'required|mimes:pdf,doc,docx|max:5120',
@@ -104,6 +104,6 @@ class JobApplicationController extends Controller
         });
 
         // Redirect dengan pesan sukses
-        return redirect()->route('job.list')->with('success', 'Lamaran berhasil dikirim! Kami akan menghubungi Anda melalui email atau WhatsApp.');
+        return redirect()->route('job')->with('success', 'Lamaran berhasil dikirim! Kami akan menghubungi Anda melalui email atau WhatsApp.');
     }
 }

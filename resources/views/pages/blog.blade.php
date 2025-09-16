@@ -3,7 +3,7 @@
 @section('content')
 
 <section class="relative py-16 bg-white isolate">
-  <div class="absolute inset-0 overflow-hidden -z-10">
+  <div class="absolute inset-0 overflow-hidden dark:bg-slate-800 -z-10">
     <div class="absolute top-[10%] left-[8%] h-20 w-20 rotate-[-12deg] rounded-md bg-yellow-300/70 shadow-lg"></div>
     <div class="absolute bottom-[15%] right-[12%] h-16 w-16 rotate-[10deg] rounded-md bg-yellow-200/60 shadow-md"></div>
     <div class="absolute top-[40%] right-[20%] h-12 w-12 rotate-[5deg] rounded-md bg-yellow-400/50 shadow-sm"></div>
@@ -22,7 +22,7 @@
   </div>
 </section>
 
-<div class="px-4 py-8 text-black bg-white lg:px-12" x-data="{
+<div class="px-4 py-8 text-black bg-white dark:bg-slate-800 lg:px-12 dark:text-slate-200" x-data="{
     articles: [
         {
             title: 'Strategi Jitu Memulai Usaha Sendiri: 4 Langkah Awal Memulai Bisnis',
@@ -97,22 +97,22 @@
     }
 }">
     <div class="mx-auto max-w-7xl">
-        <h1 class="pb-2 mb-6 text-3xl font-bold border-b border-yellow-400">Berita & Artikel</h1>
+        <h1 class="pb-2 mb-6 text-3xl font-bold border-b border-yellow-400 dark:text-slate-200">Berita & Artikel</h1>
         <div class="flex flex-col gap-6 lg:flex-row">
 
             <div class="w-full space-y-6 lg:w-3/4" x-data="{ page: 1, perPage: 5 }">
                 <template x-for="(article, index) in filteredArticles().slice((page - 1) * perPage, page * perPage)" :key="index">
-                    <div class="overflow-hidden bg-white border border-white rounded-lg shadow-md shadow-yellow-200 animate-fade-in">
+                    <div class="overflow-hidden bg-white border border-white rounded-lg shadow-md dark:bg-slate-400 dark:text-slate-200 shadow-yellow-200 animate-fade-in">
                         <img :src="article.image" alt="" class="object-cover w-full aspect-video">
                         <div class="p-4 space-y-2">
 
-                            <p class="flex items-center justify-between text-sm text-gray-500">
+                            <p class="flex items-center justify-between text-sm text-gray-500 dark:text-slate-600">
                                 <span x-text="article.date"></span>
                                 <span x-text="article.source"></span>
                             </p>
 
-                            <h2 class="text-xl font-semibold" x-text="article.title"></h2>
-                            <p class="text-sm text-gray-600">
+                            <h2 class="text-xl font-semibold dark:text-slate-900" x-text="article.title"></h2>
+                            <p class="text-sm text-gray-600 dark:text-slate-600">
                                 <span x-text="article.description"></span>
                                 <a :href="article.link" target="_blank" class="ml-1 font-medium text-blue-600">Baca Selengkapnya</a>
                             </p>
@@ -123,19 +123,19 @@
                     </div>
                 </template>
 
-                <div class="flex justify-center gap-2 mt-4">
-                    <button class="px-3 py-1 border border-white shadow-sm shadow-yellow-100" @click="page = 1" :disabled="page === 1">Awal</button>
-                    <button class="px-3 py-1 border border-white shadow-sm shadow-yellow-100" @click="page--" :disabled="page === 1">Sebelumnya</button>
+                <div class="flex justify-center gap-2 mt-4 ">
+                    <button class="px-3 py-1 border border-white shadow-sm dark:bg-slate-400 dark:text-slate-900 shadow-yellow-100" @click="page = 1" :disabled="page === 1">Awal</button>
+                    <button class="px-3 py-1 border border-white shadow-sm dark:bg-slate-400 dark:text-slate-900 shadow-yellow-100" @click="page--" :disabled="page === 1">Sebelumnya</button>
                     <template x-for="i in Math.ceil(filteredArticles().length / perPage)">
                         <button
-                            class="px-3 py-1 border border-white shadow-sm shadow-yellow-100"
+                            class="px-3 py-1 border border-white shadow-sm dark:bg-slate-400 dark:text-slate-900 shadow-yellow-100"
                             :class="{ 'bg-yellow-300 text-white': i === page }"
                             @click="page = i"
                             x-text="i"
                         ></button>
                     </template>
                     <button
-                        class="px-3 py-1 border border-white shadow-sm shadow-yellow-100"
+                        class="px-3 py-1 border border-white shadow-sm dark:bg-slate-400 dark:text-slate-900 shadow-yellow-100"
                         @click="page++"
                         :disabled="page === Math.ceil(filteredArticles().length / perPage)"
                     >Berikutnya</button>
@@ -144,9 +144,9 @@
 
             <div class="w-full space-y-6 lg:w-1/4">
 
-                <div class="p-4 bg-white border border-transparent rounded-lg shadow-md shadow-yellow-100">
+                <div class="p-4 bg-white border border-transparent rounded-lg shadow-md dark:bg-slate-400 dark:text-slate-900 shadow-yellow-100">
                     <h3 class="mb-2 text-lg font-semibold">Pencarian</h3>
-                    <input type="text" class="w-full px-3 py-1 text-black border border-gray-300 rounded-full focus:border-gray-300 focus:ring-0" placeholder="Cari..." x-model="searchQuery">
+                    <input type="text" class="w-full px-3 py-1 text-black border border-gray-300 rounded-full dark:text-slate-600 focus:border-gray-300 focus:ring-0" placeholder="Cari..." x-model="searchQuery">
                 </div>
             </div>
 

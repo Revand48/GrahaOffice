@@ -16,18 +16,20 @@
 >
   <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
 
+    <!-- Judul -->
     <div class="text-center transition-all duration-[1500ms] ease-out transform"
          :class="show ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-10'">
       <h2 class="text-3xl font-bold leading-tight font-pj sm:text-4xl xl:text-5xl">
-        <span class="inline-block text-transparent bg-gradient-to-r from-white to-gray-200 bg-clip-text">Mengapa</span>
-        <span class="inline-block text-transparent bg-gradient-to-r from-white to-gray-200 bg-clip-text"> Sewa Kantor Di </span>
-        <span class="inline-block text-transparent bg-gradient-to-r from-white to-gray-200 bg-clip-text">GrahaOffice?</span>
+        <span class="inline-block text-black dark:text-slate-900">Mengapa</span>
+        <span class="inline-block text-black dark:text-slate-900"> Sewa Kantor Di </span>
+        <span class="inline-block text-black dark:text-slate-900">GrahaOffice?</span>
       </h2>
-      <p class="mt-4 text-base leading-7 text-white sm:mt-6 font-pj">
+      <p class="mt-4 text-base font-semibold leading-7 text-white sm:mt-6 font-pj dark:text-slate-900">
         Semua kebutuhan bisnis Anda dalam tempat ini
       </p>
     </div>
 
+    <!-- Cards -->
     <div class="grid grid-cols-1 gap-6 mt-10 sm:mt-14 sm:grid-cols-2 lg:grid-cols-3">
       <template x-for="(card, index) in [
         { icon: `<path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M20 8l-8 5-8-5v10h16V8z'/><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M12 22V12'/>`, title: 'Penanganan Surat Menyurat', desc: 'Kolega Bisnis atau Klien Anda bebas kirim Surat/Paket ke alamat perusahaan. Notifikasi diinfokan by email/sms/wa dan Anda bebas ambil kapan saja.' },
@@ -37,17 +39,17 @@
         { icon: `<path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z'/>`, title: 'Paket Lengkap VO + Legalitas', desc: 'Tersedia Paket Lengkap. Anda tinggal terima beres untuk sewa virtual office sekaligus pembuatan legalitas PT atau CV dengan alamat bisnis pristerius.' },
         { icon: `<path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z'/>`, title: 'Pembayaran Fleksibel', desc: 'Membayar hanya yang Anda gunakan. Tanpa Deposit, Tanpa Setup Fee, Tanpa Minimum Kontrak. Anda bisa lebih fokus tingkatkan omset bisnis.' }
       ]" :key="index">
-        <div class="flex flex-col items-center p-5 transition-all duration-[2000ms] ease-out bg-white rounded-lg shadow-md hover:scale-105 hover:shadow-white/30 hover:shadow-lg hover:-translate-y-1"
+        <div class="flex flex-col items-center p-5 transition-all duration-[2000ms] ease-out bg-white rounded-lg shadow-md hover:scale-105 hover:shadow-lg hover:-translate-y-1
+                    dark:bg-slate-800/95 dark:shadow-yellow-200/20"
              :class="show
                ? 'opacity-100 translate-x-0'
                : (index % 2 === 0 ? 'opacity-0 -translate-x-20' : 'opacity-0 translate-x-20')"
              :style="`transition-delay: ${500 + index * 300}ms;`"
         >
           <svg class="w-10 h-10 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-               x-html="card.icon">
-          </svg>
-          <h3 class="mt-4 text-base font-bold text-black font-pj" x-text="card.title"></h3>
-          <p class="mt-2 text-sm text-center text-gray-600 font-pj" x-text="card.desc"></p>
+               x-html="card.icon"></svg>
+          <h3 class="mt-4 text-base font-bold text-black dark:text-white font-pj" x-text="card.title"></h3>
+          <p class="mt-2 text-sm text-center text-gray-700 dark:text-gray-200 font-pj" x-text="card.desc"></p>
         </div>
       </template>
     </div>

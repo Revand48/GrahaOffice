@@ -1,29 +1,30 @@
-
 <section
     id="location"
-    class="py-16 bg-white"
+    class="py-16 bg-white dark:bg-gray-900 dark:text-white"
     x-data="locationAnimation()"
     x-init="init()"
 >
     <div class="container px-6 mx-auto max-w-7xl">
 
+        {{-- Judul --}}
         <div
             class="max-w-3xl mx-auto text-center mb-14 transition-all duration-[1000ms] ease-out transform"
             :class="show ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-10'"
         >
             <h2 class="text-3xl font-bold leading-tight font-pj sm:text-4xl xl:text-5xl">
                 <span class="inline-block text-transparent bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text animate-pulse">Lokasi</span>
-                <span class="text-gray-900"> & </span>
+                <span class="text-gray-900 dark:text-gray-100"> & </span>
                 <span class="inline-block text-transparent bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text animate-pulse">Saran</span>
             </h2>
-            <p class="max-w-xl mx-auto mt-4 text-base leading-7 text-gray-600 font-pj">
+            <p class="max-w-xl mx-auto mt-4 text-base leading-7 text-gray-600 dark:text-gray-300 font-pj">
                 Temukan lokasi kami dan berikan saran untuk membenahi layanan kami.
             </p>
         </div>
 
         <div class="grid grid-cols-1 gap-10 md:grid-cols-3">
+            {{-- MAPS --}}
             <div
-                class="md:col-span-2 bg-white border border-amber-50 rounded-lg shadow-md overflow-hidden hover:scale-[1.005] hover:shadow-xl hover:-translate-y-1 transition-all duration-500 ease-in-out relative min-h-[400px] transform"
+                class="md:col-span-2 bg-white dark:bg-gray-800 border border-amber-50 dark:border-gray-700 rounded-lg shadow-md overflow-hidden hover:scale-[1.005] hover:shadow-xl hover:-translate-y-1 transition-all duration-500 ease-in-out relative min-h-[400px] transform"
                 :class="show ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-16'"
                 style="transition-delay: 150ms"
             >
@@ -36,13 +37,13 @@
                         allowfullscreen=""
                         loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade"
-                        class="w-full h-full">
-                    </iframe>
+                        class="w-full h-full"
+                    ></iframe>
                 </div>
-                <div class="absolute bottom-0 left-0 right-0 flex flex-col items-start justify-between gap-4 p-5 text-sm bg-white rounded-b-lg bg-opacity-90 backdrop-blur-sm md:rounded-b-none md:rounded-bl-lg md:flex-row md:items-end">
+                <div class="absolute bottom-0 left-0 right-0 flex flex-col items-start justify-between gap-4 p-5 text-sm bg-white rounded-b-lg dark:bg-gray-900/95 dark:text-gray-200 backdrop-blur-sm md:rounded-b-none md:rounded-bl-lg md:flex-row md:items-end">
                     <div class="flex-1">
-                        <p class="font-semibold text-gray-800">Graha Office Surabaya</p>
-                        <p class="leading-tight text-gray-600">
+                        <p class="font-semibold text-gray-800 dark:text-white">Graha Office Surabaya</p>
+                        <p class="leading-tight text-gray-600 dark:text-gray-300">
                             Graha Pena Lantai 15<br>
                             Jl. Jenderal Ahmad Yani No. 88,<br>
                             Gayungan, Surabaya, Jawa Timur 60231
@@ -61,24 +62,25 @@
                         <img
                             src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&margin=5&data=https://maps.app.goo.gl/pyAF77VRyCShkZ996"
                             alt="QR Code Lokasi Graha Office"
-                            class="border rounded shadow-sm border-amber-100"
+                            class="border rounded shadow-sm border-amber-100 dark:border-gray-700"
                         >
-                        <p class="text-xs leading-tight text-right text-gray-500">
+                        <p class="text-xs leading-tight text-right text-gray-500 dark:text-gray-400">
                             <strong>QR Code Maps</strong><br>
                         </p>
                     </div>
                 </div>
             </div>
 
+            {{-- FORM SARAN --}}
             <section
-                class="w-full max-w-xl px-6 py-10 mx-auto bg-white border border-amber-50 rounded-lg shadow-md min-h-[400px] transition-all duration-[1000ms] ease-out transform"
+                class="w-full max-w-xl px-6 py-10 mx-auto bg-white dark:bg-gray-800 border border-amber-50 dark:border-gray-700 rounded-lg shadow-md min-h-[400px] transition-all duration-[1000ms] ease-out transform"
                 :class="show ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-16'"
                 style="transition-delay: 300ms"
             >
                 <form method="POST" action="{{ route('suggestion.send') }}" class="space-y-6">
                     @csrf
                     <div>
-                        <label for="nama" class="block mb-2 font-semibold text-gray-700">Nama</label>
+                        <label for="nama" class="block mb-2 font-semibold text-gray-700 dark:text-gray-200">Nama</label>
                         <input
                             type="text"
                             id="nama"
@@ -88,7 +90,7 @@
                             minlength="2"
                             maxlength="50"
                             value="{{ old('nama') }}"
-                            class="w-full px-4 py-3 border border-black rounded-xl bg-white/80
+                            class="w-full px-4 py-3 border border-black dark:border-gray-600 rounded-xl bg-white/80 dark:bg-gray-900/80 text-gray-900 dark:text-white
                                    focus:outline-none focus:border-yellow-400
                                    focus:ring-0 focus:shadow-[0_0_12px_2px_rgba(250,204,21,0.5)]
                                    transition-all duration-300"
@@ -99,7 +101,7 @@
                     </div>
 
                     <div>
-                        <label for="saran" class="block mb-2 font-semibold text-gray-700">Saran</label>
+                        <label for="saran" class="block mb-2 font-semibold text-gray-700 dark:text-gray-200">Saran</label>
                         <textarea
                             id="saran"
                             name="saran"
@@ -108,7 +110,7 @@
                             required
                             minlength="5"
                             maxlength="500"
-                            class="w-full px-4 py-3 border border-black rounded-xl bg-white/80
+                            class="w-full px-4 py-3 border border-black dark:border-gray-600 rounded-xl bg-white/80 dark:bg-gray-900/80 text-gray-900 dark:text-white
                                    focus:outline-none focus:border-yellow-400
                                    focus:ring-0 focus:shadow-[0_0_12px_2px_rgba(250,204,21,0.5)]
                                    transition-all duration-300 resize-y"
@@ -120,7 +122,7 @@
 
                     <button
                         type="submit"
-                        class="relative w-full flex items-center justify-center gap-2 px-6 py-3 font-semibold text-black transition-all duration-300 transform rounded-xl bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 hover:shadow-[0_0_16px_4px_rgba(250,204,21,0.4)] hover:scale-105"
+                        class="relative w-full flex items-center justify-center gap-2 px-6 py-3 font-semibold text-black dark:text-white transition-all duration-300 transform rounded-xl bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 hover:shadow-[0_0_16px_4px_rgba(250,204,21,0.4)] hover:scale-105"
                     >
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />

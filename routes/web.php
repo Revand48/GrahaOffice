@@ -1,14 +1,14 @@
 <?php
-
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SuggestionController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\JobApplicationController;
+use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\JobController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\Auth\LoginController;
 
-//Route::post('/theme', function () {
-  //  session(['theme' => request('theme')]);
-    //return response()->json(['ok' => true]);
-//})->name('theme.update');
+
 
 // ---------- PAGES ----------
 Route::view('/',       'pages.beranda');
@@ -32,7 +32,7 @@ Route::post('/suggestion', [SuggestionController::class, 'send'])
      // routes/web.php
 Route::view('/jobs', 'pages.job')->name('jobs');
 
-
+//Navbar
 Route::get('/layanan/virtual-office', function () {
     return view('pages.layanan.virtualo');
 })->name('layanan.virtualo');
@@ -45,10 +45,6 @@ Route::get('/layanan/shared-office', function () {
     return view('pages.layanan.sharedo');
 })->name('layanan.sharedo');
 
-Route::get('/layanan/ruang-meeting', function () {
-    return view('pages.layanan.virtualo'); // ganti nanti jika punya file `meeting.blade.php`
-})->name('layanan.ruangmeeting');
-
 Route::get('/layanan/jasa-pt', function () {
     return view('pages.layanan.jasapt');
 })->name('layanan.jasapt');
@@ -58,17 +54,28 @@ Route::get('/layanan/paket-hemat', function () {
 })->name('layanan.pakethemat');
 
 // ---------- BOOKING ----------
-
 Route::post('/order', [OrderController::class, 'send'])->name('order.send');
-
-
 
 // Halaman Lowongan
 Route::get('/jobs', function () {
     return view('pages.job');
-})->name('job.list');
+})->name('job');
 
 // Form Lamaran
 Route::get('/job/apply', [JobApplicationController::class, 'showForm'])->name('job.apply');
 Route::post('/job/submit', [JobApplicationController::class, 'submitForm'])->name('job.submit');
 
+// ---------- DASHBOARD ADMIN ----------
+// Dashboard utama
+Route::get('/admin/dashboard', [DashboardController::class, 'index'])
+     ->name('admin.dashboard');
+// CRUD Berita
+Route::resource('admin/dashboard/berita', BeritaController::class);
+// CRUD Job
+Route::resource('admin/dashboard/job', JobController::class);
+// CTA CRUD DASHBOARD
+Route::get('admin/dashboard/crud-berita', [BeritaController::class, 'index'])->name('crud.berita');
+Route::get('admin/dashboard/crud-job', [JobController::class, 'index'])->name('crud.job');
+
+// Login
+Route::view('/login',   'admin.login');

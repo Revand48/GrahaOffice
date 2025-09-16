@@ -3,8 +3,8 @@
 
 @section('content')
 
-<section class="relative py-16 bg-white isolate">
-  <div class="absolute inset-0 overflow-hidden -z-10">
+<section class=" relative py-16 bg-white isolate">
+  <div class="dark:bg-slate-800 dark:text-slate-200 absolute inset-0 overflow-hidden -z-10">
 
     <div class="absolute top-[10%] left-[8%] h-20 w-20 rotate-[-12deg] rounded-md bg-yellow-300/70 shadow-lg"></div>
     <div class="absolute bottom-[15%] right-[12%] h-16 w-16 rotate-[10deg] rounded-md bg-yellow-200/60 shadow-md"></div>
@@ -28,19 +28,19 @@
 
 <div class="container px-6 mx-auto mt-15">
 
-    <div class="text-center">
+    <div class="text-center 0">
       <h2 class="text-3xl font-bold leading-tight font-pj sm:text-4xl xl:text-5xl">
         <span class="inline-block text-transparent bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text animate-pulse">Private </span>
-        <span class="text-gray-900">Office</span>
+        <span class="dark:text-slate-200 text-gray-900">Office</span>
       </h2>
-      <p class="mt-4 text-base leading-7 text-gray-600 sm:mt-2 font-pj">
+      <p class="dark:text-slate-400 mt-4 text-base leading-7 text-gray-600 sm:mt-2 font-pj">
         Semua kebutuhan bisnis Anda dalam tempat ini
       </p>
     </div>
 
     <div class="mt-12 mb-10 text-center">
         <h3 class="font-bold leading-tight font-pj">
-            <span class="mx-2 text-3xl font-bold text-black">PRIVATE OFFICE</span>
+            <span class="dark:text-slate-200 mx-2 text-3xl font-bold text-black">PRIVATE OFFICE</span>
             <span class="inline-block text-3xl text-transparent bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text animate-pulse">
                 A
             </span>
@@ -48,9 +48,9 @@
     </div>
 
     <div class="grid max-w-4xl grid-cols-1 gap-6 mx-auto md:grid-cols-2">
-        <div x-data="{ open: false }" class="max-w-[280px] mx-auto p-2 bg-white shadow rounded-xl border border-gray-300 aspect-[4/3]">
+        <div x-data="{ open: false }" class="dark:bg-slate-700 max-w-[280px] mx-auto p-2 bg-white shadow rounded-xl border border-gray-300 aspect-[4/3]">
             <div @click="open = true"
-                 class="aspect-[4/3] overflow-hidden rounded-md border border-yellow-300 shadow-md shadow-yellow-200 cursor-pointer transition duration-200">
+                 class=" aspect-[4/3] overflow-hidden rounded-md border border-yellow-300 shadow-md shadow-yellow-200 cursor-pointer transition duration-200">
                 <img src="{{ asset('galeri/privc/a.jpg') }}" alt="Private Office A - 1"
                      class="object-cover w-full h-full">
             </div>
@@ -74,7 +74,7 @@
             </div>
         </div>
 
-        <div x-data="{ open: false }" class="max-w-[280px] mx-auto p-2 bg-white shadow rounded-xl border border-gray-300 aspect-[4/3]">
+        <div x-data="{ open: false }" class="dark:bg-slate-700 max-w-[280px] mx-auto p-2 bg-white shadow rounded-xl border border-gray-300 aspect-[4/3]">
             <div @click="open = true"
                  class="aspect-[4/3] overflow-hidden rounded-md border border-yellow-300 shadow-md shadow-yellow-200 cursor-pointer transition duration-200">
                 <img src="{{ asset('galeri/privc/b.jpg') }}" alt="Private Office A - 2"
@@ -113,12 +113,12 @@
     <div class="absolute top-0 bottom-12 w-0.5 bg-gradient-to-b from-yellow-300 to-gray-300 left-[calc(50%)] -ml-px pointer-events-none z-10"></div>
 
     <div class="flex flex-col justify-center col-span-1 row-span-4 pl-6 text-left">
-        <h3 class="text-3xl font-bold text-black">PRIVATE</h3>
-        <h3 class="text-3xl font-bold text-black">OFFICE</h3>
+        <h3 class="dark:text-slate-200 text-3xl font-bold text-black">PRIVATE</h3>
+        <h3 class="dark:text-slate-200 text-3xl font-bold text-black">OFFICE</h3>
         <h3 class="inline-block text-3xl font-bold text-transparent bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text animate-pulse">B</h3>
     </div>
 
-    <div x-data="{ open: false }" class="w-full max-w-md mx-auto p-2 bg-white shadow rounded-xl border border-gray-300 row-span-2 aspect-[4/3]">
+    <div x-data="{ open: false }" class="dark:bg-slate-700 w-full max-w-md mx-auto p-2 bg-white shadow rounded-xl border border-gray-300 row-span-2 aspect-[4/3]">
         <div @click="open = true" class="aspect-[4/3] overflow-hidden rounded-md border border-yellow-300 shadow-md shadow-yellow-200 cursor-pointer transition duration-200">
             <img src="{{ asset('galeri/privb/a.jpg') }}" alt="Foto Galeri" class="object-cover w-full h-full">
         </div>
@@ -140,7 +140,7 @@
         </div>
     </div>
 
-    <div x-data="{ open: false }" class="w-full max-w-md mx-auto p-2 bg-white shadow rounded-xl border border-gray-300 row-span-2 col-start-2 row-start-3 aspect-[4/3]">
+    <div x-data="{ open: false }" class="dark:bg-slate-700 w-full max-w-md mx-auto p-2 bg-white shadow rounded-xl border border-gray-300 row-span-2 col-start-2 row-start-3 aspect-[4/3]">
         <div @click="open = true" class="aspect-[4/3] overflow-hidden rounded-md border border-yellow-300 shadow-md shadow-yellow-200 cursor-pointer transition duration-200">
             <img src="{{ asset('galeri/privb/b.jpg') }}" alt="Foto Galeri" class="object-cover w-full h-full">
         </div>
@@ -163,14 +163,14 @@
     </div>
 
     <div class="flex flex-col justify-center col-span-1 col-start-3 row-span-4 pl-6 text-left">
-        <h3 class="text-3xl font-bold text-black">PRIVATE</h3>
-        <h3 class="text-3xl font-bold text-black">OFFICE</h3>
+        <h3 class="dark:text-slate-200 text-3xl font-bold text-black">PRIVATE</h3>
+        <h3 class="dark:text-slate-200 text-3xl font-bold text-black">OFFICE</h3>
         <h3 class="inline-block text-3xl font-bold text-transparent bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text animate-pulse">
             C
         </h3>
     </div>
 
-    <div x-data="{ open: false }" class="w-full max-w-md mx-auto p-2 bg-white shadow rounded-xl border border-gray-300 row-span-2 col-start-4 row-start-1 aspect-[4/3]">
+    <div x-data="{ open: false }" class="dark:bg-slate-700 w-full max-w-md mx-auto p-2 bg-white shadow rounded-xl border border-gray-300 row-span-2 col-start-4 row-start-1 aspect-[4/3]">
         <div @click="open = true" class="aspect-[4/3] overflow-hidden rounded-md border border-yellow-300 shadow-md shadow-yellow-200 cursor-pointer transition duration-200">
             <img src="{{ asset('galeri/privc/a.jpg') }}" alt="Foto Galeri" class="object-cover w-full h-full">
         </div>
@@ -192,7 +192,7 @@
         </div>
     </div>
 
-    <div x-data="{ open: false }" class="w-full max-w-md mx-auto p-2 bg-white shadow rounded-xl border border-gray-300 row-span-2 col-start-4 row-start-3 aspect-[4/3]">
+    <div x-data="{ open: false }" class="dark:bg-slate-700 w-full max-w-md mx-auto p-2 bg-white shadow rounded-xl border border-gray-300 row-span-2 col-start-4 row-start-3 aspect-[4/3]">
         <div @click="open = true" class="aspect-[4/3] overflow-hidden rounded-md border border-yellow-300 shadow-md shadow-yellow-200 cursor-pointer transition duration-200">
             <img src="{{ asset('galeri/privc/b.jpg') }}" alt="Foto Galeri" class="object-cover w-full h-full">
         </div>
@@ -221,15 +221,15 @@
     <div class="text-center">
       <h2 class="text-3xl font-bold leading-tight font-pj sm:text-4xl xl:text-5xl">
         <span class="inline-block text-transparent bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text animate-pulse">Shared </span>
-        <span class="text-gray-900">Office</span>
+        <span class="dark:text-slate-200 text-gray-900">Office</span>
       </h2>
-      <p class="mt-4 text-base leading-7 text-gray-600 sm:mt-2 font-pj">
+      <p class="dark:text-slate-400 mt-4 text-base leading-7 text-gray-600 sm:mt-2 font-pj">
         Semua kebutuhan bisnis Anda dalam tempat ini
       </p>
     </div>
 
     <div class="grid max-w-4xl grid-cols-1 gap-6 mx-auto mt-12 md:grid-cols-2">
-        <div x-data="{ open: false }" class="max-w-[280px] mx-auto p-2 bg-white shadow rounded-xl border border-gray-300 aspect-[4/3]">
+        <div x-data="{ open: false }" class="dark:bg-slate-700 max-w-[280px] mx-auto p-2 bg-white shadow rounded-xl border border-gray-300 aspect-[4/3]">
             <div @click="open = true"
                  class="aspect-[4/3] overflow-hidden rounded-md border border-yellow-300 shadow-md shadow-yellow-200 cursor-pointer transition duration-200">
                 <img src="{{ asset('galeri/shared/a.jpg') }}" alt="Private Office A - 1"
@@ -255,7 +255,7 @@
             </div>
         </div>
 
-        <div x-data="{ open: false }" class="max-w-[280px] mx-auto p-2 bg-white shadow rounded-xl border border-gray-300 aspect-[4/3]">
+        <div x-data="{ open: false }" class="dark:bg-slate-700 max-w-[280px] mx-auto p-2 bg-white shadow rounded-xl border border-gray-300 aspect-[4/3]">
             <div @click="open = true"
                  class="aspect-[4/3] overflow-hidden rounded-md border border-yellow-300 shadow-md shadow-yellow-200 cursor-pointer transition duration-200">
                 <img src="{{ asset('galeri/shared/b.jpg') }}" alt="Private Office A - 2"
@@ -286,16 +286,16 @@
     <div class="text-center">
         <h2 class="text-3xl font-bold leading-tight font-pj sm:text-4xl xl:text-5xl">
             <span class="inline-block text-transparent bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text animate-pulse">Ruang </span>
-            <span class="text-gray-900">Meeting & </span>
+            <span class="dark:text-slate-200 text-gray-900">Meeting & </span>
             <span class="inline-block text-transparent bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text animate-pulse">Training</span>
         </h2>
-        <p class="mt-4 text-base leading-7 text-gray-600 sm:mt-2 font-pj">
+        <p class="dark:text-slate-400 mt-4 text-base leading-7 text-gray-600 sm:mt-2 font-pj">
             Semua kebutuhan bisnis Anda dalam tempat ini
         </p>
     </div>
 
     <div class="grid max-w-4xl grid-cols-1 gap-10 mx-auto mt-12 mb-15 md:grid-cols-3">
-        <div x-data="{ open: false }" class="max-w-[280px] mx-auto p-2 bg-white shadow rounded-xl border border-gray-300 aspect-[4/3]">
+        <div x-data="{ open: false }" class="dark:bg-slate-700 max-w-[280px] mx-auto p-2 bg-white shadow rounded-xl border border-gray-300 aspect-[4/3]">
             <div @click="open = true"
                  class="aspect-[4/3] overflow-hidden rounded-md border border-yellow-300 shadow-md shadow-yellow-200 cursor-pointer transition duration-200">
                 <img src="{{ asset('galeri/meeting/a.jpg') }}" alt="Private Office A - 1"
@@ -321,7 +321,7 @@
             </div>
         </div>
 
-        <div x-data="{ open: false }" class="max-w-[280px] mx-auto p-2 bg-white shadow rounded-xl border border-gray-300 aspect-[4/3]">
+        <div x-data="{ open: false }" class="dark:bg-slate-700 max-w-[280px] mx-auto p-2 bg-white shadow rounded-xl border border-gray-300 aspect-[4/3]">
             <div @click="open = true"
                  class="aspect-[4/3] overflow-hidden rounded-md border border-yellow-300 shadow-md shadow-yellow-200 cursor-pointer transition duration-200">
                 <img src="{{ asset('galeri/meeting/b.jpg') }}" alt="Private Office A - 2"
@@ -347,7 +347,7 @@
             </div>
         </div>
 
-        <div x-data="{ open: false }" class="max-w-[280px] mx-auto p-2 bg-white shadow rounded-xl border border-gray-300 aspect-[4/3]">
+        <div x-data="{ open: false }" class="dark:bg-slate-700 max-w-[280px] mx-auto p-2 bg-white shadow rounded-xl border border-gray-300 aspect-[4/3]">
             <div @click="open = true"
                  class="aspect-[4/3] overflow-hidden rounded-md border border-yellow-300 shadow-md shadow-yellow-200 cursor-pointer transition duration-200">
                 <img src="{{ asset('galeri/meeting/c.jpg') }}" alt="Private Office A - 3"

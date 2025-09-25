@@ -53,8 +53,8 @@
                                 <td class="px-4 py-3">{{ \Carbon\Carbon::parse($item->tanggal)->format('d M Y') }}</td>
                                 <td class="px-4 py-3">{{ $item->sumber }}</td>
                                 <td class="px-4 py-3">
-                                    @if($item->gambar)
-                                        <img src="{{ $item->gambar }}" alt="gambar" class="w-20 h-12 object-cover rounded">
+                                    @if($item->gambar_url)
+                                        <img src="{{ $item->gambar_url }}" alt="gambar" class="w-20 h-12 object-cover rounded">
                                     @else
                                         <div class="w-20 h-12 bg-gray-100 flex items-center justify-center text-gray-400 rounded">-</div>
                                     @endif

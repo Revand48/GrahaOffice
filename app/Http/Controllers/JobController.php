@@ -10,7 +10,7 @@ class JobController extends Controller
     // Index: list + filter (search posisi, tipe) + pagination (7 per halaman)
     public function index(Request $request)
     {
-        $query = DB::table('job')->orderBy('created_at', 'desc');
+        $query = DB::table('jobs')->orderBy('created_at', 'desc');
 
         if ($search = $request->query('search')) {
             $query->where('posisi', 'like', "%{$search}%");
@@ -42,7 +42,7 @@ class JobController extends Controller
             'detail' => 'nullable|string',
         ]);
 
-        DB::table('job')->insert([
+        DB::table('jobs')->insert([
             'posisi'     => $request->posisi,
             'jumlah'     => $request->jumlah,
             'tipe'       => $request->tipe,
@@ -58,7 +58,7 @@ class JobController extends Controller
     // Form edit
     public function edit($id)
     {
-        $job = DB::table('job')->where('id', $id)->first();
+        $job = DB::table('jobs')->where('id', $id)->first();
         if (!$job) abort(404);
 
         return view('admin.job.edit', compact('job'));
@@ -75,10 +75,10 @@ class JobController extends Controller
             'detail' => 'nullable|string',
         ]);
 
-        $job = DB::table('job')->where('id', $id)->first();
+        $job = DB::table('jobs')->where('id', $id)->first();
         if (!$job) abort(404);
 
-        DB::table('job')->where('id', $id)->update([
+        DB::table('jobs')->where('id', $id)->update([
             'posisi'     => $request->posisi,
             'jumlah'     => $request->jumlah,
             'tipe'       => $request->tipe,
@@ -93,12 +93,12 @@ class JobController extends Controller
     // Hapus
     public function destroy($id)
     {
-        $job = DB::table('job')->where('id', $id)->first();
+        $job = DB::table('jobs')->where('id', $id)->first();
         if (!$job) {
             return redirect()->route('job.index')->with('error', 'Lowongan tidak ditemukan.');
         }
 
-        DB::table('job')->where('id', $id)->delete();
+        DB::table('jobs')->where('id', $id)->delete();
 
         return redirect()->route('job.index')->with('success', 'Lowongan berhasil dihapus.');
     }

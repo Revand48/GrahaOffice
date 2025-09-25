@@ -39,13 +39,13 @@ class BeritaController extends Controller
             'title'     => 'required|string|max:255',
             'tanggal'   => 'required|date',
             'sumber'    => 'required|string|max:255',
-            'gambar'    => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:4096',
+            'gambar_url'    => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:4096',
             'deskripsi' => 'required|string',
         ]);
 
         $gambarPath = null;
-        if ($request->hasFile('gambar')) {
-            $file = $request->file('gambar');
+        if ($request->hasFile('gambar_url')) {
+            $file = $request->file('gambar_url');
             $filename = time() . '_' . preg_replace('/\s+/', '_', $file->getClientOriginalName());
             $dest = public_path('uploads/berita');
             if (!file_exists($dest)) {
@@ -59,7 +59,7 @@ class BeritaController extends Controller
             'title'      => $request->title,
             'tanggal'    => $request->tanggal,
             'sumber'     => $request->sumber,
-            'gambar'     => $gambarPath,
+            'gambar_url'     => $gambarPath,
             'deskripsi'  => $request->deskripsi,
             'created_at' => now(),
             'updated_at' => now(),
@@ -85,25 +85,25 @@ class BeritaController extends Controller
             'title'     => 'required|string|max:255',
             'tanggal'   => 'required|date',
             'sumber'    => 'required|string|max:255',
-            'gambar'    => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:4096',
+            'gambar_url'    => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:4096',
             'deskripsi' => 'required|string',
         ]);
 
         $berita = DB::table('berita')->where('id', $id)->first();
         if (!$berita) abort(404);
 
-        $gambarPath = $berita->gambar; // pakai yang lama kalau tidak upload baru
+        $gambarPath = $berita->gambar_url; // pakai yang lama kalau tidak upload baru
 
-        if ($request->hasFile('gambar')) {
+        if ($request->hasFile('gambar_url')) {
             // hapus file lama jika ada
-            if ($berita->gambar) {
-                $oldPath = public_path(ltrim($berita->gambar, '/'));
+            if ($berita->gambar_url) {
+                $oldPath = public_path(ltrim($berita->gambar_url, '/'));
                 if (file_exists($oldPath)) {
                     @unlink($oldPath);
                 }
             }
 
-            $file = $request->file('gambar');
+            $file = $request->file('gambar_url');
             $filename = time() . '_' . preg_replace('/\s+/', '_', $file->getClientOriginalName());
             $dest = public_path('uploads/berita');
             if (!file_exists($dest)) {
@@ -117,7 +117,7 @@ class BeritaController extends Controller
             'title'      => $request->title,
             'tanggal'    => $request->tanggal,
             'sumber'     => $request->sumber,
-            'gambar'     => $gambarPath,
+            'gambar_url'     => $gambarPath,
             'deskripsi'  => $request->deskripsi,
             'updated_at' => now(),
         ]);
@@ -134,8 +134,8 @@ class BeritaController extends Controller
         }
 
         // hapus file gambar jika ada
-        if ($berita->gambar) {
-            $oldPath = public_path(ltrim($berita->gambar, '/'));
+        if ($berita->gambar_url) {
+            $oldPath = public_path(ltrim($berita->gambar_url, '/'));
             if (file_exists($oldPath)) {
                 @unlink($oldPath);
             }

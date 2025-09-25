@@ -22,7 +22,7 @@
     @endif
 
     <form action="{{ route('berita.update', $berita->id) }}" method="POST" enctype="multipart/form-data"
-          x-data="{ preview: @json($berita->gambar) }" class="space-y-4 bg-white p-6 rounded shadow">
+          x-data="{ preview: @json($berita->gambar_url) }" class="space-y-4 bg-white p-6 rounded shadow">
         @csrf
         @method('PUT')
 

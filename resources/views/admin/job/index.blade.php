@@ -28,7 +28,7 @@
             <!-- Filter -->
             <form method="GET" action="{{ route('job.index') }}" class="mb-4 flex gap-2">
                 <input type="text" name="search" value="{{ request('search') }}" placeholder="Cari posisi..." class="border p-2 rounded w-1/3">
-                <select name="tipe" class="border p-2 rounded">
+                <select name="tipe" class="border p-2 w-33 px-7 rounded">
                     <option value="">Semua Tipe</option>
                     <option value="Fulltime" {{ request('tipe') == 'Fulltime' ? 'selected' : '' }}>Fulltime</option>
                     <option value="Internship" {{ request('tipe') == 'Internship' ? 'selected' : '' }}>Internship</option>
@@ -70,7 +70,7 @@
                                         </form>
 
                                         <button
-                                            @click=" openDelete = true; deleteId = {{ $item->id }}; deleteTitle = @json($item->posisi) "
+                                            @click="openDelete = true; deleteId = {{ $item->id }}; deleteTitle = @json($item->title)"
                                             class="px-3 py-1 bg-red-500 text-white rounded text-sm">
                                             Hapus
                                         </button>

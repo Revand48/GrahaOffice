@@ -1,5 +1,8 @@
 /** @type {import('tailwindcss').Config} */
-import plugin from 'tailwindcss/plugin';
+import plugin from 'tailwindcss/plugin'
+import forms from '@tailwindcss/forms'
+import typography from '@tailwindcss/typography'
+import aspectRatio from '@tailwindcss/aspect-ratio'
 
 export default {
   darkMode: 'class',
@@ -11,11 +14,11 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: '#FFFBEF',      // Putih dominan
-        dark: '#0F0F0F',         // Hitam
-        accent: '#FACC15',       // Kuning Tailwind
-        soft: '#FDF6E3',         // Latar lembut
-        muted: '#A0AEC0',        // Abu-abu lembut
+        primary: '#FFFBEF',
+        dark: '#0F0F0F',
+        accent: '#FACC15',
+        soft: '#FDF6E3',
+        muted: '#A0AEC0',
       },
       fontFamily: {
         sans: ['Inter', 'ui-sans-serif', 'system-ui'],
@@ -38,11 +41,10 @@ export default {
     },
   },
   plugins: [
-    require('@tailwindcss/forms'),
-    require('@tailwindcss/typography'),
-    require('@tailwindcss/aspect-ratio'),
-    require('@tailwindcss/line-clamp'),
-    plugin(function({ addUtilities }) {
+    forms,
+    typography,
+    aspectRatio,
+    plugin(function ({ addUtilities }) {
       addUtilities({
         '.text-shadow': {
           textShadow: '1px 1px 2px rgba(0,0,0,0.1)',
@@ -50,7 +52,7 @@ export default {
         '.text-shadow-md': {
           textShadow: '2px 2px 4px rgba(0,0,0,0.2)',
         },
-      });
-    })
+      })
+    }),
   ],
 }

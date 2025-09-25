@@ -1,4 +1,5 @@
 <?php
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SuggestionController;
 use App\Http\Controllers\OrderController;
@@ -7,8 +8,7 @@ use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Auth\LoginController;
-
-
+use App\Http\Controllers\AuthController;
 
 // ---------- PAGES ----------
 Route::view('/',       'pages.beranda');
@@ -27,9 +27,9 @@ Route::view('/kritik-saran', 'components.home.hfive')->name('kritik-saran');
 
 // Kirim saran (POST)
 Route::post('/suggestion', [SuggestionController::class, 'send'])
-     ->name('suggestion.send');
+    ->name('suggestion.send');
 
-     // routes/web.php
+// routes/web.php
 Route::view('/jobs', 'pages.job')->name('jobs');
 
 //Navbar
@@ -67,15 +67,21 @@ Route::post('/job/submit', [JobApplicationController::class, 'submitForm'])->nam
 
 // ---------- DASHBOARD ADMIN ----------
 // Dashboard utama
-Route::get('/admin/dashboard', [DashboardController::class, 'index'])
-     ->name('admin.dashboard');
-// CRUD Berita
-Route::resource('admin/dashboard/berita', BeritaController::class);
-// CRUD Job
-Route::resource('admin/dashboard/job', JobController::class);
-// CTA CRUD DASHBOARD
-Route::get('admin/dashboard/crud-berita', [BeritaController::class, 'index'])->name('crud.berita');
-Route::get('admin/dashboard/crud-job', [JobController::class, 'index'])->name('crud.job');
+Route::middleware(['auth'])->group(function () {
+    Route::get('/admin/dashboard', [DashboardController::class, 'index'])
+        ->name('admin.dashboard');
 
+    // CRUD Berita
+    Route::resource('admin/dashboard/berita', BeritaController::class);
+
+    // CRUD Job
+    Route::resource('admin/dashboard/job', JobController::class);
+
+    // CTA CRUD Dashboard
+    Route::get('admin/dashboard/crud-berita', [BeritaController::class, 'index'])->name('crud.berita');
+    Route::get('admin/dashboard/crud-job', [JobController::class, 'index'])->name('crud.job');
+});
 // Login
-Route::view('/login',   'admin.login');
+Route::get('/login',  [AuthController::class, 'showLoginForm'])->name('login.form');
+Route::post('/login',  [AuthController::class, 'login'])->name('login');
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
